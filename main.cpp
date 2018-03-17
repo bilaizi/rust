@@ -19,6 +19,9 @@ auto main()->int{
     a = nullptr;
     auto b= make_unique<int>();
     unique_ptr<int> c{new int};
+    auto d= make_unique<int[]>(10);
+    unique_ptr<int[]> e{new int[10]};
+    
     cout  << __func__ << " " << "Hello, Wandbox!" << endl;
     return 0;
 }
