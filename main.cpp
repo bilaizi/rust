@@ -2,6 +2,7 @@
 #include <initializer_list>
 #include <memory>
 #include <iostream>
+#include <string>
 using namespace std;
 
 auto main()->int{
