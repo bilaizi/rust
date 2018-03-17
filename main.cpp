@@ -5,6 +5,9 @@ using namespace std;
 auto main()->int{
     array<int, 3> values = { 11, 22, 33 };
     auto [x, y, z] = values;
+    struct Point { double x, y, z; };
+    Point point={1.0, 2.0, 3.0};
+    auto [x, y, z] = point;
     cout  << __func__ << " " << "Hello, Wandbox!" << endl;
     return 0;
 }
