@@ -22,6 +22,10 @@ auto main()->int{
     auto d= make_unique<int[]>(10);
     unique_ptr<int[]> e{new int[10]};
     auto f= make_shared<int>();
+    shared_ptr<int[]> g{new int[10]};
+    const int versionNumberMajor = 2;
+    const int versionNumberMinor = 1;
+    const std::string productName = "Super Hyper Net Modulator";
     cout  << __func__ << " " << "Hello, Wandbox!" << endl;
     return 0;
 }
