@@ -12,6 +12,8 @@ auto main()->int{
     Point point={1.0, 2.0, 3.0};
     auto [x, y, z] = point;
     int* a=nullptr;
+    if(!a){
+    }
     cout  << __func__ << " " << "Hello, Wandbox!" << endl;
     return 0;
 }
