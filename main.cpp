@@ -21,7 +21,7 @@ auto main()->int{
     unique_ptr<int> c{new int};
     auto d= make_unique<int[]>(10);
     unique_ptr<int[]> e{new int[10]};
-    
+    auto f= make_shared<int>();
     cout  << __func__ << " " << "Hello, Wandbox!" << endl;
     return 0;
 }
