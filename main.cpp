@@ -18,6 +18,7 @@ auto main()->int{
     delete a;
     a = nullptr;
     auto b= make_unique<int>();
+    unique_ptr<int> c{new int};
     cout  << __func__ << " " << "Hello, Wandbox!" << endl;
     return 0;
 }
