@@ -1,5 +1,6 @@
 #include <array>
 #include <initializer_list>
+#include <memory>
 #include <iostream>
 using namespace std;
 
