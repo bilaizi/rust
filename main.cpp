@@ -1,8 +1,10 @@
+#include <array>
 #include <iostream>
 using namespace std;
 
 auto main()->int{
-    std::array<int, 3> values = { 11, 22, 33 };
+    array<int, 3> values = { 11, 22, 33 };
+    unsigned int valuesSize = std::size(values)
     auto [x, y, z] = values;
     cout  << __func__ << " " << "Hello, Wandbox!" << endl;
     return 0;
