@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">GitHubIssues</string>
-    <string name="progress_title">Getting issues</string>
-    <string name="progress_body">Please Wait</string>
-</resources>
