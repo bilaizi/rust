@@ -34,8 +34,8 @@ auto main()->int{
     vector<int> numbers(n);
     iota(begin(numbers), end(numbers), 1);
     auto first_to_erase = remove_if(begin(numbers), end(numbers), [](auto num) { return num % 2 == 0; });
-  
-  numbers.erase(first_to_erase, end(numbers));
+    numbers.erase(first_to_erase, end(numbers));
+    
     cout  << __func__ << " " << "Hello, Wandbox!" << endl;
     return 0;
 }
