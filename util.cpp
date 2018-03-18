@@ -16,6 +16,9 @@ using namespace std;
 auto power(double x, int n)->double
 
 auto main()->int{
+    for (int i {-3}; i <= 3; ++i)     // Calculate powers of 8 from -3 to +3
+        std::cout << std::setw(10) << power(8.0, i);
+    std::cout << std::endl;
     vector<double> numbers{ 1, 2, 4, 8, 16, 32, 64, 128, 256 };
     std::cout << *average<double>(begin(numbers), end(numbers)) << std::endl;
     return 0;
