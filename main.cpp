@@ -33,14 +33,7 @@ auto main()->int{
     const int versionNumberMinor = 1;
     const std::string productName = "Super Hyper Net Modulator";
 	
-    vector<double> numbers{ 1, 2, 4, 8, 16, 32, 64, 128, 256 };
-    cout << *average<double>(begin(numbers), end(numbers)) << std::endl;
-	
-    const size_t n{20};
-    vector<int> numbers(n);
-    iota(begin(numbers), end(numbers), 1);
-    auto first_to_erase = remove_if(begin(numbers), end(numbers), [](auto num) { return num % 2 == 0; });
-    numbers.erase(first_to_erase, end(numbers));
+
     
     cout  << __func__ << " " << "Hello, Wandbox!" << endl;
     return 0;
