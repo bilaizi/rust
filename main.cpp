@@ -32,7 +32,10 @@ auto main()->int{
     const int versionNumberMajor = 2;
     const int versionNumberMinor = 1;
     const std::string productName = "Super Hyper Net Modulator";
-    
+	
+    vector<double> numbers{ 1, 2, 4, 8, 16, 32, 64, 128, 256 };
+    cout << *average<double>(begin(numbers), end(numbers)) << std::endl;
+	
     const size_t n{20};
     vector<int> numbers(n);
     iota(begin(numbers), end(numbers), 1);
