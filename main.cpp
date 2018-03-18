@@ -1,8 +1,11 @@
+#include <algorithm> 
 #include <array>
 #include <initializer_list>
 #include <memory>
+#include <numeric>
 #include <iostream>
 #include <string>
+#include <string_view>
 using namespace std;
 
 auto main()->int{
@@ -26,6 +29,13 @@ auto main()->int{
     const int versionNumberMajor = 2;
     const int versionNumberMinor = 1;
     const std::string productName = "Super Hyper Net Modulator";
+    
+    const size_t n{20};
+    vector<int> numbers(n);
+    iota(begin(numbers), end(numbers), 1);
+    auto first_to_erase = remove_if(begin(numbers), end(numbers), [](auto num) { return num % 2 == 0; });
+  
+  numbers.erase(first_to_erase, end(numbers));
     cout  << __func__ << " " << "Hello, Wandbox!" << endl;
     return 0;
 }
