@@ -9,12 +9,12 @@
 #include <string>
 #include <string_view>
 #include <utility>
-
+#include <vector>
 using namespace std;
 
 auto main()->int{
-
-    cout  << __func__ << " " << "Hello, Wandbox!" << endl;
+    vector<double> numbers{ 1, 2, 4, 8, 16, 32, 64, 128, 256 };
+    std::cout << *average<double>(begin(numbers), end(numbers)) << std::endl;
     return 0;
 }
 
