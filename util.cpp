@@ -4,6 +4,7 @@
 #include <initializer_list>
 #include <memory>
 #include <numeric>
+#include <iomanip>
 #include <iostream>
 #include <optional>
 #include <string>
@@ -12,12 +13,20 @@
 #include <vector>
 using namespace std;
 
+auto power(double x, int n)->double
+
 auto main()->int{
     vector<double> numbers{ 1, 2, 4, 8, 16, 32, 64, 128, 256 };
     std::cout << *average<double>(begin(numbers), end(numbers)) << std::endl;
     return 0;
 }
 
+// Recursive function to calculate x to the power n
+auto power(double x, int n)->double{
+    if (n == 0)      return 1.0;
+    else if (n > 0)  return x * power(x, n - 1);
+    else /* n < 0 */ return 1.0 / power(x, -n);
+}
 
 // Solution 1: simply use accumulate to sum, and determine the count using std::distance() 
 // (the latter is more general than using iterator arithmetic, end - begin, which only works for random-access iterators)
