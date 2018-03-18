@@ -75,9 +75,38 @@ std::unordered_map<MessageSeverity, std::function<void()>> logger{
     {MessageSeverity::error, writeError},
     {MessageSeverity::fatal, writeFatal}
 };
-
 void writeMessage(MessageSeverity messageseverity){
 	writeElapsedTime();
 	logger[messageseverity]();
 }
+
+struct MessageSeverity{ 
+    virtual void writeMessage() const = 0;
+};
+struct MessageDebug: MessageSeverity{
+    void writeMessage() const override {
+	std::cerr << "debug" << std::endl;
+    }
+};
+struct MessageInformation: MessageSeverity{ 
+    void writeMessage() const override {
+	std::cerr << "info" << std::endl;
+    }
+};
+struct MessageWarn: MessageSeverity{
+    void writeMessage() const override {
+	std::cerr << "warn" << std::endl;
+    }
+};
+struct MessageError: MessageSeverity{
+    void writeMessage() const override {
+	std::cerr << "error" << std::endl;
+    }
+};
+struct MessageFatal: MessageSeverity{
+    void writeMessage() const override {
+	std::cerr << "fatal" << std::endl;
+    }
+};
+
 */
