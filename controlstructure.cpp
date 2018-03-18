@@ -2,9 +2,11 @@
 #include <iostream>
 using namespace std;
 
-enum class MessageSeverity{                               
-    information,
-    warning,
+enum class MessageSeverity{ 
+    debug,
+    info,
+    warn,
+    error,
     fatal,
 };
 
@@ -16,25 +18,32 @@ void writeElapsedTime(){
     std::cerr << diff.count() << " sec. elapsed: ";
 }
 
-void writeInformation(){ std::cerr << "information" << std::endl; }
-void writeWarning(){ std::cerr << "warning" << std::endl; }
-void writeUnexpected(){ std::cerr << "unexpected" << std::endl; }
+void writeDebug(){ std::cerr << "debug" << std::endl; }
+void writeInfo(){ std::cerr << "info" << std::endl; }
+void writeWarn(){ std::cerr << "warn" << std::endl; }
+void writeError(){ std::cerr << "error" << std::endl; }
+void writeFatal(){ std::cerr << "fatal" << std::endl; }
 
 void writeMessage(MessageSeverity messageseverity){
     writeElapsedTime(); 
-    if (MessageSeverity::information == messageseverity)
-	    writeInformation();
-    else if (MessageSeverity::warning == messageseverity)
-	    writeWarning();
-    else{
-	    writeUnexpected();
-    }
+    if(MessageSeverity::debug == messageseverity)
+	writeDebug();
+    else if(MessageSeverity::info == messageseverity)
+	writeInfo();
+    else if(MessageSeverity::warn == messageseverity)
+	writeWarn();
+    else if(MessageSeverity::error== messageseverity)
+	writeError();
+    else
+	writeFatal();
 }
 
 auto main()->int{
     std::cout << std::endl;
-    writeMessage(MessageSeverity::information);
-    writeMessage(MessageSeverity::warning);
+    writeMessage(MessageSeverity::debug);
+    writeMessage(MessageSeverity::info);
+    writeMessage(MessageSeverity::warn);
+    writeMessage(MessageSeverity::error);
     writeMessage(MessageSeverity::fatal);
     std::cout << std::endl;
 }
