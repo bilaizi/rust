@@ -30,3 +30,11 @@ void writeMessage(MessageSeverity messageseverity){
 	    writeUnexpected();
     }
 }
+
+auto main()->int{
+    std::cout << std::endl;
+    writeMessage(MessageSeverity::information);
+    writeMessage(MessageSeverity::warning);
+    writeMessage(MessageSeverity::fatal);
+    std::cout << std::endl;
+}
