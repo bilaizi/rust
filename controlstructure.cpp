@@ -80,6 +80,7 @@ void writeMessage(MessageSeverity messageseverity){
 	logger[messageseverity]();
 }
 
+//Dynamic polymorphism
 struct MessageSeverity{ 
     virtual void writeMessage() const = 0;
 };
@@ -145,6 +146,7 @@ writeMessagePointer(msp5);
 writeMessagePointer(msp6);
 std::cout << std::endl;
 
+//Static polymorphism
 template <typename ConcreteMessageSeverity>                        
 struct MessageSeverity{
     void writeMessage(){                            
