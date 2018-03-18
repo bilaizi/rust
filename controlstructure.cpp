@@ -145,5 +145,53 @@ writeMessagePointer(msp5);
 writeMessagePointer(msp6);
 std::cout << std::endl;
 
-
+template <typename ConcreteMessageSeverity>                        
+struct MessageSeverity{
+    void writeMessage(){                            
+        static_cast<ConcreteMessageSeverity*>(this)->writeMessageImpl();
+    }
+    virtual void writeMessageImpl() const = 0;
+};
+struct MessageDebug: MessageSeverity<MessageDebug>{
+    void writeMessageImpl() const {              
+        std::cerr << "debug" << std::endl;
+    }
+}; 
+struct MessageInfo: MessageSeverity<MessageInfo>{
+    void writeMessageImpl() const {          
+        std::cerr << "info" << std::endl;
+    }
+};
+struct MessageWarn: MessageSeverity<MessageWarn>{
+    void writeMessageImpl() const {              
+        std::cerr << "warn" << std::endl;
+    }
+};
+struct MessageError: MessageSeverity<MessageError>{
+    void writeMessageImpl() const {              
+        std::cerr << "error" << std::endl;
+    }
+}; 
+struct MessageFatal: MessageSeverity<MessageFatal>{
+    void writeMessageImpl() const {              
+        std::cerr << "fatal" << std::endl;
+    }
+}; 
+template <typename T>
+void writeMessage(T& messageseverity){                       	
+    writeElapsedTime();                                   
+    messageseverity.writeMessage();                         
+}
+std::cout << std::end;
+MessageDebug md;
+writeMessage(md);
+MessageInfo mi;
+writeMessage(mi);
+MessageWarn mw;
+writeMessage(mw);
+MessageError mw;
+writeMessage(mw);
+MessageFatal mf;
+writeMessage(mf);
+std::cout << std::endl;
 */
