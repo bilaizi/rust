@@ -48,5 +48,23 @@ auto main()->int{
     std::cout << std::endl;
 }
 /*
-
+void writeMessage(MessageSeverity messageseverity){
+    writeElapsedTime();
+    switch(messageseverity){
+        case MessageSeverity::debug:
+            writeDebug();
+            break;
+        case MessageSeverity::info:
+            writeInfo();
+            break;
+	case MessageSeverity::warn:
+            writeWarn();
+            break;
+        case MessageSeverity::error:
+            writeError();
+            break;
+        default:
+            writeFatal();
+            break;
+  }
 */
