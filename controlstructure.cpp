@@ -66,5 +66,18 @@ void writeMessage(MessageSeverity messageseverity){
         default:
             writeFatal();
             break;
-  }
+ }
+
+std::unordered_map<MessageSeverity, std::function<void()>> logger{
+    {MessageSeverity::debug, writeInformation},
+    {MessageSeverity::info, writeInfo},
+    {MessageSeverity::warn, writeWarn},
+    {MessageSeverity::error, writeError},
+    {MessageSeverity::fatal, writeFatal}
+};
+
+void writeMessage(MessageSeverity messageseverity){
+	writeElapsedTime();
+	logger[messageseverity]();
+}
 */
