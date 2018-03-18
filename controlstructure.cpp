@@ -69,7 +69,7 @@ void writeMessage(MessageSeverity messageseverity){
  }
 
 std::unordered_map<MessageSeverity, std::function<void()>> logger{
-    {MessageSeverity::debug, writeInformation},
+    {MessageSeverity::debug, writeDebug},
     {MessageSeverity::info, writeInfo},
     {MessageSeverity::warn, writeWarn},
     {MessageSeverity::error, writeError},
@@ -88,7 +88,7 @@ struct MessageDebug: MessageSeverity{
 	std::cerr << "debug" << std::endl;
     }
 };
-struct MessageInformation: MessageSeverity{ 
+struct MessageInfo: MessageSeverity{ 
     void writeMessage() const override {
 	std::cerr << "info" << std::endl;
     }
@@ -108,5 +108,42 @@ struct MessageFatal: MessageSeverity{
 	std::cerr << "fatal" << std::endl;
     }
 };
+void writeMessageReference(const MessageSeverity& messageseverity){
+    writeElapsedTime();
+    messageseverity.writeMessage();
+}
+void writeMessagePointer(const MessageSeverity* messageseverity){
+    writeElapsedTime();
+    messageseverity->writeMessage();
+}
+std::cout << std::endl;
+MessageDebug md;
+MessageInfo mi;
+MessageWarn mw;
+MessageError me;
+MessageFatal mf; 
+MessageSeverity& msr1 = md;            
+MessageSeverity& msr2 = mi;
+MessageSeverity& msr3 = mw;
+MessageSeverity& msr4 = me;            
+MessageSeverity& msr5 = mf; 
+writeMessageReference(msr1);           
+writeMessageReference(msr2);
+writeMessageReference(msr3);        
+writeMessageReference(msr4);
+writeMessageReference(msr5);
+std::cerr << std::endl;
+MessageSeverity* msp1 = new MessageDebug;
+MessageSeverity* msp2 = new MessageInfo;
+MessageSeverity* msp3 = new MessageWarn;
+MessageSeverity* msp4 = new MessageError;
+MessageSeverity* msp5 = new MessageFatal;
+writeMessagePointer(msp1);
+writeMessagePointer(msp2);
+writeMessagePointer(msp3);
+writeMessagePointer(msp5);
+writeMessagePointer(msp6);
+std::cout << std::endl;
+
 
 */
