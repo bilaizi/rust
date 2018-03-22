@@ -1,3 +1,4 @@
+// main.rs
 fn main() {
     println!("Hello, world!");
 }
@@ -5,7 +6,7 @@ fn main() {
 //$ ./main
 //Hello, world!
 //$ cargo --version
-//$ cargo new hello_cargo --bin
-//$ cd hello_cargo
+//$ cargo new hello --bin
+//$ cd hello
 //$ cargo build    compile
 //$ cargo run      compile and run
