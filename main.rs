@@ -4,3 +4,4 @@ fn main() {
 //$ rustc main.rs
 //$ ./main
 //Hello, world!
+//$ cargo --version
