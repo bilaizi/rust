@@ -7,5 +7,5 @@ fn main() {
 //$ cargo --version
 //$ cargo new hello_cargo --bin
 //$ cd hello_cargo
-//$ cargo build
-//$ cargo run
+//$ cargo build    compile
+//$ cargo run      compile and run
