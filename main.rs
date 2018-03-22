@@ -5,3 +5,5 @@ fn main() {
 //$ ./main
 //Hello, world!
 //$ cargo --version
+//$ cargo new hello_cargo --bin
+//$ cd hello_cargo
